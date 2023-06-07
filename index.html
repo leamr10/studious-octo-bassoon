@@ -22,7 +22,26 @@
             </p>
             <button id="start">Start Quiz</button>
       </div>
+      <div id="questions" class="hidden">
+            <h2 id="questions-title"></h2>
+            <div id="choices" class="choices"></div>
+      </div>
 
+    <div id="gameover-screen" class="hidden">
+            <h2>All done!</h2>
+            <p>Your final score is <span id="final-score"></span></p>
+            <p>Enter initials: <input type="text" id="initials" max="3" />
+            <button id="submit">Submit</button>        
+            </p>
+    </div>
 
+    <div id="highscore-screen" class="hidden">
+            <h3>High Scores</h3>
+            <button id="submit">Go back</button>
+            <button id="submit">Clear high scores</button>
+    </div>
 
+    <script src="./assets/js/script.js"></script>
   </body>
+
+  </html>
