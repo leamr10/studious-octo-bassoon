@@ -5,79 +5,56 @@
 // final score and initial enter screen
 // high score screen
 
-var startButton = document.querySelector("#start");
-var choicesEl =document.getElementById("choices");
-var titlesEl = document.getElementById("questions-title");
-var timeEl = document.querySelector(".time")
+var startButtonEl = document.querySelector("#start-button");
+var clearHighScoresEl = document.querySelector("#clear-highscores");
+var backHighScoresEl = document.querySelector("#back-highscores");
+var initialsFormEl = document.querySelector("#initials-form");
+var initialsEl = document.querySelector("#initials");
+initialsEl.setAttribute("style", "display: none");
+clearHighScoresEl.setAttribute("style", "display: none");
+backHighScoresEl.setAttribute("style", "display: none");
+var initialsInputEl = document.querySelector("#initials-input");
+var choicesEl = {
+    1: document.querySelector("#choice1"),
+    2: document.querySelector("#choice2"),
+    3: document.querySelector("#choice3"),
+    4: document.querySelector("#choice4")
+};
+var titlesEl = document.getElementById("questions");
+var timeEl = document.querySelector("#time")
 var secondsLeft = 75;
 
-var questions = [
+var questions = {
 
-    {
-        question: "Commonly used data types DO Not Include:",
-        choices: [
-            "1. strings", "2. booleans", "3. alerts", "4. numbers"
-        ],
-        answer: "3. alerts"
-    },
-    {   
-        question: "The condition in an if/else statement is enclosed with _______. ",
-        choices: [
-            "1. quotes", "2. curly brackets", "3. parenthesis", "4. square brackets"
-    ],
-        answer: "3. parenthesis"
-    },
-    {   
-        question: "Arrays in JavaScript can be used to store ________. ",
-        choices: [
-            "1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"
-    ],
-        answer: "4. all of the above"
-    },
-    {   
-        question: "String values must be enclosed within ________ when being assigned to variables. ",
-        choices: [
-           "1. commas", "2. curly brackets", "3. quotes", "4. parenthesis"
-    ],
-        answer: "3. quotes"
-    },
-    {
-        question: "A very useful tool used during development and debugging for printing content to the debugger is: ",
-        choices: [
-            "1. JavaScript", "2. terminal/bash", "3. for loops", "4. console log"
-     ],
-        answer: "4. console log"
-    }
-];
+    0: ["Commonly used data types DO Not Include: ", "A: strings", "B: booleans", "C: alerts", "D: numbers"],
+    1: ["The condition in an if/else statement is enclosed with _______", "A: quotes", "B: curly brackets", "C: parenthesis", "D: square brackets"],
+    2: ["Arrays in JavaScript can be used to store _______", "A: numbers and strings", "B: other arrays", "C: booleans", "D: all of the above"],
+    3: ["String values must be enclosed within ______ when being assigned to variables.", "A: commas", "B: curly brackets", "C: quotes", "D: parenthesis"],
+    4: ["A very useful tool used during development and debugging for printing content to the debugger is: ", "A: JavaScript", "B: terminal/bash", "C: for loops", "D: console log"],
 
-// this variable is used to keep track of what question the user is on
-// once user submits their answer we should increment it (ex: currentQuestion++)
+};
+
+var answers = ["C. alerts", "C: parenthesis", "D: all of the above", "C: quotes", "D: console log"]
+
+
 var currentQuestion = 0;
+var correctAnswer;
 
-
-
-
-
-startButton.addEventListener("click", function(event) {
-    console.log('working');
-    console.log(questions[currentQuestion].question);
-
-    titlesEl.innerText = questions[currentQuestion].question;
-    
+function startQuiz (event) {
     setTime();
-});
+}
+
+
+startButtonEl.addEventListener("click", startQuiz);
+
 
 function setTime() {
     var timerInterval = setInterval(function() {
         secondsLeft--;
-        timeEl.innerHTML="00:" +secondsLeft;
+        timeEl.textContent = secondsLeft+ " seconds left";
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
+            secondsLeft = 0;
         }
-    } ,1000);
-
-    // setting time deduction for incorrect answers
-    document.getElementById()
-        sec -= 15;
-        timeEl.innerHTML="00:" +secondsLeft;
+    } , 1000)
 };
