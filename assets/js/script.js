@@ -64,14 +64,20 @@ startButton.addEventListener("click", function(event) {
 
     titlesEl.innerText = questions[currentQuestion].question;
     
+    setTime();
 });
 
 function setTime() {
     var timerInterval = setInterval(function() {
         secondsLeft--;
-
+        timeEl.innerHTML="00:" +secondsLeft;
         if (secondsLeft === 0) {
-            
+            clearInterval(timerInterval);
         }
-    } )
-}
+    } ,1000);
+
+    // setting time deduction for incorrect answers
+    document.getElementById()
+        sec -= 15;
+        timeEl.innerHTML="00:" +secondsLeft;
+};
