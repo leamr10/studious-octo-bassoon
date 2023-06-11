@@ -6,6 +6,7 @@
 // high score screen
 
 var startButtonEl = document.querySelector("#start-button");
+var startScreenEl = document.querySelector("#start-screen");
 var clearHighScoresEl = document.querySelector("#clear-highscores");
 var backHighScoresEl = document.querySelector("#back-highscores");
 var initialsFormEl = document.querySelector("#initials-form");
@@ -38,10 +39,21 @@ var answers = ["C. alerts", "C: parenthesis", "D: all of the above", "C: quotes"
 
 
 var currentQuestion = 0;
+
 var correctAnswer;
 
 function startQuiz (event) {
     setTime();
+    startScreenEl.setAttribute("style", "display: none");
+    alignQuestions();
+}
+
+function alignQuestions (event) {
+    titlesEl.textContent = questions[currentQuestion][0];
+    choicesEl[1].textContent = questions[currentQuestion][1];
+    choicesEl[2].textContent = questions[currentQuestion][2];
+    choicesEl[3].textContent = questions[currentQuestion][3];
+    choicesEl[4].textContent = questions[currentQuestion][4];
 }
 
 
@@ -58,3 +70,23 @@ function setTime() {
         }
     } , 1000)
 };
+
+choicesEl[1].addEventListener("click", function() {
+    currentQuestion++;
+    alignQuestions();
+});
+
+choicesEl[2].addEventListener("click", function() {
+    currentQuestion++;
+    alignQuestions();
+})
+
+choicesEl[3].addEventListener("click", function() {
+    currentQuestion++;
+    alignQuestions();
+})
+
+choicesEl[4].addEventListener("click", function() {
+    currentQuestion++;
+    alignQuestions();
+})

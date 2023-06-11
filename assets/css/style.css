@@ -26,3 +26,27 @@ p {
 #choices {
     list-style-type: none;
 }
+
+#choice1:hover {
+    background-color: purple;
+    border-style: solid;
+    font: bold;
+}
+
+#choice2:hover {
+    background-color: purple;
+    border-style: solid;
+    font: bold;
+}
+
+#choice3:hover {
+    background-color: purple;
+    border-style: solid;
+    font: bold;
+}
+
+#choice4:hover {
+    background-color: purple;
+    border-style: solid;
+    font: bold;
+}
