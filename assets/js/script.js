@@ -8,6 +8,8 @@
 var startButton = document.querySelector("#start");
 var choicesEl =document.getElementById("choices");
 var titlesEl = document.getElementById("questions-title");
+var timeEl = document.querySelector(".time")
+var secondsLeft = 75;
 
 var questions = [
 
@@ -38,12 +40,12 @@ var questions = [
            "1. commas", "2. curly brackets", "3. quotes", "4. parenthesis"
     ],
         answer: "3. quotes"
-}
+    },
     {
-        question: "A very useful tool used during development and debugging for printing content to the debugger is: "
+        question: "A very useful tool used during development and debugging for printing content to the debugger is: ",
         choices: [
             "1. JavaScript", "2. terminal/bash", "3. for loops", "4. console log"
-        ]
+     ],
         answer: "4. console log"
     }
 ];
@@ -54,12 +56,22 @@ var currentQuestion = 0;
 
 
 
+
+
 startButton.addEventListener("click", function(event) {
     console.log('working');
     console.log(questions[currentQuestion].question);
-    //var questionText = document.createTextNode(questions[currentQuestion].question);
-    //titlesEl.appendChild(questionText);
 
     titlesEl.innerText = questions[currentQuestion].question;
     
 });
+
+function setTime() {
+    var timerInterval = setInterval(function() {
+        secondsLeft--;
+
+        if (secondsLeft === 0) {
+            
+        }
+    } )
+}
