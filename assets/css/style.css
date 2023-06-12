@@ -1,3 +1,8 @@
+body {
+    background-color: lightskyblue;
+}
+
+
 
 h1 {
     text-align: center;
@@ -6,10 +11,12 @@ h1 {
 
 .scores {
     float: left;
+    font-weight: bold;
 }
 
 .timer {
     float: right;
+    font-weight: bold;
 }
 
 p {
@@ -25,6 +32,7 @@ p {
 
 #choices {
     list-style-type: none;
+    font-family: Trebuchet MS;
 }
 
 #choice1:hover {
@@ -49,4 +57,9 @@ p {
     background-color: purple;
     border-style: solid;
     font: bold;
+}
+
+#questions {
+    text-align: center;
+    font-family: Trebuchet MS;
 }

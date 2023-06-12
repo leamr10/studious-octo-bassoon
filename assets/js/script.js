@@ -9,6 +9,7 @@ var startButtonEl = document.querySelector("#start-button");
 var startScreenEl = document.querySelector("#start-screen");
 var clearHighScoresEl = document.querySelector("#clear-highscores");
 var backHighScoresEl = document.querySelector("#back-highscores");
+var highScoresScreenEl = document.querySelector("#highscore-screen")
 var initialsFormEl = document.querySelector("#initials-form");
 var initialsEl = document.querySelector("#initials");
 initialsEl.setAttribute("style", "display: none");
@@ -22,8 +23,12 @@ var choicesEl = {
     4: document.querySelector("#choice4")
 };
 var titlesEl = document.getElementById("questions");
+var questionsContainerEl = document.querySelector("#questions-container");
 var timeEl = document.querySelector("#time")
 var secondsLeft = 75;
+var pointsEl = document.querySelector("#score");
+var feedbackEl = document.querySelector("#feedback");
+var scoreEl = 0;
 
 var questions = {
 
@@ -35,12 +40,10 @@ var questions = {
 
 };
 
-var answers = ["C. alerts", "C: parenthesis", "D: all of the above", "C: quotes", "D: console log"]
+var answers = ["C: alerts", "C: parenthesis", "D: all of the above", "C: quotes", "D: console log"]
 
 
 var currentQuestion = 0;
-
-var correctAnswer;
 
 function startQuiz (event) {
     setTime();
@@ -56,7 +59,6 @@ function alignQuestions (event) {
     choicesEl[4].textContent = questions[currentQuestion][4];
 }
 
-
 startButtonEl.addEventListener("click", startQuiz);
 
 
@@ -64,29 +66,59 @@ function setTime() {
     var timerInterval = setInterval(function() {
         secondsLeft--;
         timeEl.textContent = secondsLeft+ " seconds left";
-        if (secondsLeft === 0) {
+        if (secondsLeft <= 0 || currentQuestion > 4) {
             clearInterval(timerInterval);
-            secondsLeft = 0;
+            endQuiz();
         }
     } , 1000)
 };
 
 choicesEl[1].addEventListener("click", function() {
+    var option1Text = questions[currentQuestion][1]
+    checkAnswer(option1Text);
     currentQuestion++;
     alignQuestions();
 });
 
 choicesEl[2].addEventListener("click", function() {
+    var option2Text = questions[currentQuestion][2]
+    checkAnswer(option2Text);
     currentQuestion++;
     alignQuestions();
 })
 
 choicesEl[3].addEventListener("click", function() {
+    var option3Text = questions[currentQuestion][3]
+    checkAnswer(option3Text);
     currentQuestion++;
     alignQuestions();
 })
 
 choicesEl[4].addEventListener("click", function() {
+    var option4Text = questions[currentQuestion][4]
+    checkAnswer(option4Text);
     currentQuestion++;
     alignQuestions();
 })
+
+    function checkAnswer (answerSelection) {
+
+        if (answers[currentQuestion] === answerSelection) {
+            scoreEl+= 2;
+            feedbackEl.textContent = "Correct!";
+    }
+        else {
+            secondsLeft-=15;
+            feedbackEl.textContent= "Wrong";
+        }
+        console.log(answers[currentQuestion]);
+        console.log(answerSelection);
+    }
+    
+    function endQuiz (event) {
+           questionsContainerEl.style.display ="none";
+           titlesEl.style.display= "none";
+           initialsEl.style.display="flex";
+        }
+
+
