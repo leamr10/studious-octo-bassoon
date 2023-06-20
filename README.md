@@ -25,4 +25,5 @@ handle such problems after this challenge.
 
 The deployed webpage can be found here:
 
-A screen capture of the webpage can be found below:
+A screen capture of the webpage can be found below: ![Quiz ScreenCapture](https://github.com/leamr10/studious-octo-bassoon/assets/133124800/894208dd-2df3-42ef-a54e-fdc44aab6727)
+
