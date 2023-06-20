@@ -63,3 +63,13 @@ p {
     text-align: center;
     font-family: Trebuchet MS;
 }
+
+#initials {
+    position: absolute;
+    left: 50%;
+}
+
+#highscore-screen {
+    position: absolute;
+    left: 50%;
+}
