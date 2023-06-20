@@ -1,9 +1,4 @@
-// when start button is clicked, timer starts and question is presented
-// 6 questions, once one is finished, the other appears until the final question
-// when question is answered incorrectly, 15 seconds subtracted from time
-// when all questions are answered or timer reaches 0, game ends
-// final score and initial enter screen
-// high score screen
+
 
 var startButtonEl = document.querySelector("#start-button");
 var startScreenEl = document.querySelector("#start-screen");
