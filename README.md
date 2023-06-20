@@ -25,4 +25,4 @@ handle such problems after this challenge.
 
 The deployed webpage can be found here:
 
-A screen capture of the webpage can be found below:
+A screen capture of the webpage can be found below: 
